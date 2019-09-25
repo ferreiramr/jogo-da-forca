@@ -1,0 +1,36 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}}
+
+{% block title %}Jogo da Forca{% endblock title %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <h1 class="display-4">JOGO DA FORCA</h1>
+  <p class="lead">Se divirta com a Dona Morte!</p>
+  <hr class="my-4">
+  <p>Mas tome cuidado para nao morrer tentando!</p>
+
+  <pre>
+      {{ forca }}
+  </pre>
+
+
+  <h1> {% for letra in palavra_secreta %}
+    {{ letra }}
+    {% endfor %}</h1>
+
+
+
+  {{wtf.quick_form(formulario_de_chute, extra_classes='form-inline') }}
+
+  <h3>
+    Chutes efetuados:
+    {% for letra in chutes %}
+    {{ letra }}
+    {% endfor %}
+  </h3>
+  <a href={{ url_for('novo_jogo') }} class="button">Nova palavra</a>
+</div>
+
+{% endblock content %}
