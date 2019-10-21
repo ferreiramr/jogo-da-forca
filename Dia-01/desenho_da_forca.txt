@@ -4,7 +4,7 @@
 ▐█▐█• ▄█▀▄ ██ ▄▄▐▀▀▪▄    ▐█▐█•▄█▀▀█ ▐█·    ▐█ ▌▐▌▐█· ▄█▀▄ ▐▀▀▄ ▐▀▀▄ ▐▀▀▪▄▐▀▀▄          
  ███ ▐█▌.▐▌▐███▌▐█▄▄▌     ███ ▐█ ▪▐▌▐█▌    ██ ██▌▐█▌▐█▌.▐▌▐█•█▌▐█•█▌▐█▄▄▌▐█•█▌         
 . ▀   ▀█▄▀▪·▀▀▀  ▀▀▀     . ▀   ▀  ▀ ▀▀▀    ▀▀  █▪▀▀▀ ▀█▄▀▪.▀  ▀.▀  ▀ ▀▀▀ .▀  ▀ ▀  ▀  ▀ 
-Qual o seu chute, mas cuidado, ele pode ser o ultimo!
+Qual é seu chute? Mas cuidado, ele pode ser o ultimo!
 #
                _.---._      
              .'       `.     
@@ -20,7 +20,7 @@ Qual o seu chute, mas cuidado, ele pode ser o ultimo!
  ▐█.▪▄█▀▀█     ▐█ ▌▐▌▐█· ▄█▀▄ ▐▀▀▄ ▐▀▀▄ ▐▀▀▪▄▐█▐▐▌▐█· ▐█▌ ▄█▀▄          
  ▐█▌·▐█ ▪▐▌    ██ ██▌▐█▌▐█▌.▐▌▐█•█▌▐█•█▌▐█▄▄▌██▐█▌██. ██ ▐█▌.▐▌         
  ▀▀▀  ▀  ▀     ▀▀  █▪▀▀▀ ▀█▄▀▪.▀  ▀.▀  ▀ ▀▀▀ ▀▀ █▪▀▀▀▀▀•  ▀█▄▀▪ ▀  ▀  ▀ 
-Qual o seu chute, mas cuidado, ele pode ser o ultimo!
+Qual é seu chute? Mas cuidado, ele pode ser o ultimo!
 #
                _.---._
              .'       `.
@@ -52,7 +52,7 @@ Qual o seu chute, mas cuidado, ele pode ser o ultimo!
 ▐█ ▌▐▌▐█· ▄█▀▄ ▐▀▀▄ ▐▀▀▄ ▐▀▀▪▄█▌▐█▌    ▐█· ▐█▌▐▀▀▪▄    ▐█▐▐▌ ▄█▀▄ ▐█▐█• ▄█▀▄          
 ██ ██▌▐█▌▐█▌.▐▌▐█•█▌▐█•█▌▐█▄▄▌▐█▄█▌    ██. ██ ▐█▄▄▌    ██▐█▌▐█▌.▐▌ ███ ▐█▌.▐▌         
 ▀▀  █▪▀▀▀ ▀█▄▀▪.▀  ▀.▀  ▀ ▀▀▀  ▀▀▀     ▀▀▀▀▀•  ▀▀▀     ▀▀ █▪ ▀█▄▀▪. ▀   ▀█▄▀▪ ▀  ▀  ▀ 
-Qual o seu chute, mas cuidado, ele pode ser o ultimo!             
+Qual é seu chute? Mas cuidado, ele pode ser o ultimo!         
 #
                _.---._
              .'       `.
@@ -85,7 +85,7 @@ Qual o seu chute, mas cuidado, ele pode ser o ultimo!
 ▐█ ▌▐▌▐█· ▄█▀▄ ▐▀▀▄ ▐▀▀▄ ▐▀▀▪▄█▌▐█▌     ▄█▀▄ █▌▐█▌ ▐█.▪▐▀▀▄ ▄█▀▀█     ▐█▐█•▐▀▀▪▄▄█▀▀▀•         
 ██ ██▌▐█▌▐█▌.▐▌▐█•█▌▐█•█▌▐█▄▄▌▐█▄█▌    ▐█▌.▐▌▐█▄█▌ ▐█▌·▐█•█▌▐█ ▪▐▌     ███ ▐█▄▄▌█▌▪▄█▀         
 ▀▀  █▪▀▀▀ ▀█▄▀▪.▀  ▀.▀  ▀ ▀▀▀  ▀▀▀      ▀█▄▀▪ ▀▀▀  ▀▀▀ .▀  ▀ ▀  ▀     . ▀   ▀▀▀ ·▀▀▀ • ▀  ▀  ▀ 
-Qual o seu chute, mas cuidado, ele pode ser o ultimo!                                                                    
+Qual é seu chute? Mas cuidado, ele pode ser o ultimo!                                                                   
 #
                _.---._
              .'       `.
@@ -118,7 +118,7 @@ Qual o seu chute, mas cuidado, ele pode ser o ultimo!
 ██▪ ▄█▀▀█ ██▪   ▐█.▪▄█▀▀█      ██▀· ▄█▀▄ █▌▐█▌██ ▄▄ ▄█▀▄          
 ██▌.▐█ ▪▐▌▐█▌▐▌ ▐█▌·▐█ ▪▐▌    ▐█▪·•▐█▌.▐▌▐█▄█▌▐███▌▐█▌.▐▌         
 ▀▀▀  ▀  ▀ .▀▀▀  ▀▀▀  ▀  ▀     .▀    ▀█▄▀▪ ▀▀▀ ·▀▀▀  ▀█▄▀▪ ▀  ▀  ▀ 
-Qual o seu chute, mas cuidado, ele pode ser o ultimo!                 
+Qual é seu chute? Mas cuidado, ele pode ser o ultimo!               
 #
                _.---._
              .'       `.
@@ -169,7 +169,7 @@ Qual o seu chute, mas cuidado, ele pode ser o ultimo!
  ▐█.▪▄█▀▀█     █▌·.█▌█▌▐█▌▄█▀▀█ ▄▀▀▀█▄▐▀▀▪▄    ▐█ ▌▐▌▐█· ▄█▀▄ ▐▀▀▄  ▐█.▪ ▄█▀▄          
  ▐█▌·▐█ ▪▐▌    ▐█▪▄█·▐█▄█▌▐█ ▪▐▌▐█▄▪▐█▐█▄▄▌    ██ ██▌▐█▌▐█▌.▐▌▐█•█▌ ▐█▌·▐█▌.▐▌         
  ▀▀▀  ▀  ▀     ·▀▀█.  ▀▀▀  ▀  ▀  ▀▀▀▀  ▀▀▀     ▀▀  █▪▀▀▀ ▀█▄▀▪.▀  ▀ ▀▀▀  ▀█▄▀▪ ▀  ▀  ▀         
-Qual o seu chute, mas cuidado, ele pode ser o ultimo! 
+Qual é seu chute? Mas cuidado, ele pode ser o ultimo!
 #
                _.---._
              .'       `.
