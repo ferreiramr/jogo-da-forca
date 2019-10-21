@@ -39,7 +39,7 @@ class Palavra:
 
     def _escolher_palavra(self, palavras):
         from random import choice
-        return choice(palavras)
+        return choice(palavras).upper()
 
     def revele_os_chutes(self, chutes):
         def revela_ou_oculta(letra):
@@ -60,7 +60,7 @@ class Chutes:
         self._erros = 0
 
     def novo(self, letra):
-        self._atual = letra.lower()
+        self._atual = letra.upper()
 
         if self._eh_certo():
             self._certos += self._atual
@@ -89,15 +89,15 @@ class Chutes:
 
 if __name__ == "__main__":
     with open('desenho_da_forca.txt', 'r') as forca_txt:
-        desenho_da_forca = forca_txt.read().split('#')
+        desenho_da_forca = forca_txt.read().split(';')
 
     jogo = Jogo(desenho_da_forca)
 
     while not (jogo.infelizmente_saiu_vivo() or jogo.enforcou()):
         print(jogo.desenho_da_forca())
         print(jogo.palavra_secreta())
-        print('Chutes dados:', jogo.chutes())
-        jogo.chutar(input())
+        print('\nChutes dados:', jogo.chutes())
+        jogo.chutar(input('\nQual é seu chute? Mas cuidado, ele pode ser o ultimo!: '))
 
     mensagem_de_morte = jogo.desenho_da_forca()
 
