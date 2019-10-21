@@ -88,7 +88,7 @@ class Chutes:
 
 
 if __name__ == "__main__":
-    with open('desenho_da_forca.txt', 'r') as forca_txt:
+    with open('desenho_da_forca.txt', 'r', encoding='utf-8') as forca_txt:
         desenho_da_forca = forca_txt.read().split(';')
 
     jogo = Jogo(desenho_da_forca)
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
     mensagem_de_morte = jogo.desenho_da_forca()
 
-    with open('mensagem_de_nao_morte.txt') as mensagem_txt:
+    with open('mensagem_de_nao_morte.txt', 'r', encoding='utf-8') as mensagem_txt:
         mensagem_de_nao_morte = mensagem_txt.read()
 
     if jogo.enforcou():
