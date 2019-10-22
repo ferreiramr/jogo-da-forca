@@ -16,19 +16,19 @@ class Jogo:
         return self._desenho_da_forca[self._chutes._erros]
 
     def palavra_secreta(self):
-        return self._palavra._secreta
+        pass
 
     def chutar(self, letra):
-        self._chutes.novo(letra)
+        pass
 
     def chutes(self):
-        return self._chutes._certos + self._chutes._errados
+        pass
 
     def enforcou(self):
-        return self._chutes._erros >= self._maximo_de_erros
+        pass
 
     def infelizmente_saiu_vivo(self):
-        return self._palavra.secreta_foi_revelada()
+        pass
 
 
 class Palavra:
@@ -62,29 +62,16 @@ class Chutes:
     def novo(self, letra):
         self._atual = letra.upper()
 
-        if self._eh_certo():
-            self._certos += self._atual
-            self._palavra_secreta.revele_os_chutes(self._certos)
-
-        if self._eh_errado():
-            self._errados += self._atual
-            self._erros += 1
+        pass
 
     def _eh_certo(self):
-        return self._eh_valido() and self._atual in self._palavra_secreta._revelada
+        pass
 
     def _eh_errado(self):
-        return self._eh_valido() and not self._eh_certo()
+        pass
 
     def _eh_valido(self):
-        eh_uma_letra = self._atual.isalpha()
-        eh_apenas_uma_letra = len(self._atual) == 1
-        eh_repetido = self._atual in (self._certos + self._errados)
-
-        if eh_uma_letra and eh_apenas_uma_letra and not eh_repetido:
-            return True
-        else:
-            return False
+        pass
 
 
 if __name__ == "__main__":
