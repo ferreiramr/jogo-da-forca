@@ -1,130 +1,98 @@
 class Jogo:
-    def __init__(self, desenhos_da_forca):
-        self._palavra_secreta = PalavraSecretra()
-        self._chute = Chute(self._palavra_secreta)
-        self._DESENHO_DA_FORCA = desenhos_da_forca
-        self._maximo_de_erros = len(self._DESENHO_DA_FORCA) - 1
+    def __init__(self, desenho_da_forca):
+        self._palavras = self._obter_palavras()
+        self._palavra = Palavra(self._palavras)
+        self._chutes = Chutes(self._palavra)
+        self._desenho_da_forca = desenho_da_forca
+        self._maximo_de_erros = len(self._desenho_da_forca) - 1
 
-    def nova_palavra(self):
-        self._palavra_secreta = PalavraSecretra()
-        self._chute = Chute(self._palavra_secreta)
+    def _obter_palavras(self):
+        import json
+        with open('dados_do_jogo.json') as dados_json:
+            palavras = json.load(dados_json)['palavras']
+        return tuple(palavras)
+
+    def desenho_da_forca(self):
+        return self._desenho_da_forca[self._chutes._erros]
 
     def palavra_secreta(self):
-        return self._palavra_secreta._oculta
+        pass
 
-    def infelizmente_saiu_vivo(self):
-        return self._palavra_secreta.foi_revelada()
-
-    def enforcou(self):
-        return self._chute._erros >= self._maximo_de_erros
-
-    def chutar(self, chute):
-        self._chute.novo_chute(chute)
+    def chutar(self, letra):
+        pass
 
     def chutes(self):
-        return self._chute._certos + self._chute._errados
+        pass
 
-    def desenhar_forca(self):
-        return self._DESENHO_DA_FORCA[self._chute._erros]
+    def enforcou(self):
+        pass
 
-    def adicionar_palavra(self, nova_palavra):
-        self._palavra_secreta.salvar_nova(nova_palavra)
+    def infelizmente_saiu_vivo(self):
+        pass
 
 
-class PalavraSecretra():
+class Palavra:
 
-    def obter_palavras(self):
-        import shelve
-        dados_do_jogo = shelve.open('dados_do_jogo.db')
+    def __init__(self, palavras):
+        self._revelada = self._escolher_palavra(palavras)
+        self._secreta = ['_' for letra in self._revelada]
 
-        try:
-            palavras = dados_do_jogo['palavras']
-            dados_do_jogo.close()
-        except:
-            palavras = ['mortes']
-
-        return palavras
-
-    def salvar_nova(self, nova_palavra):
-        import shelve
-        dados_do_jogo = shelve.open('dados_do_jogo.db')
-        palavras = dados_do_jogo['palavras']
-
-        if len(nova_palavra) >= 5 and len(nova_palavra) <= 10 and nova_palavra not in palavras:
-            palavras.append(nova_palavra)
-            dados_do_jogo.close()
-
-    def __init__(self):
-        palavras = self.obter_palavras()
+    def _escolher_palavra(self, palavras):
         from random import choice
-        self._revelada = choice(palavras).lower()
-        self._oculta = ['_' for letra in self._revelada]
+        return choice(palavras).upper()
 
-    def foi_revelada(self):
-        return '_' not in self._oculta
-
-    def revela_chutes(self, chutes):
+    def revele_os_chutes(self, chutes):
         def revela_ou_oculta(letra):
             return letra if letra in chutes else '_'
-        self._oculta = [revela_ou_oculta(letra) for letra in self._revelada]
+
+        self._secreta = [revela_ou_oculta(letra) for letra in self._revelada]
+
+    def secreta_foi_revelada(self):
+        return '_' not in self._secreta
 
 
-class Chute():
-
-    def __init__(self, palalavra_secreta):
+class Chutes:
+    def __init__(self, palavra_secreta):
+        self._palavra_secreta = palavra_secreta
         self._atual = ''
-        self._palalavra_secreta = palalavra_secreta
         self._certos = ''
         self._errados = ''
         self._erros = 0
 
-    def novo_chute(self, chute):
-        self._atual = chute
-        if self.valido():
-            if self.certo():
-                self._certos += chute
-                self._palalavra_secreta.revela_chutes(self._certos)
-            else:
-                self._errados += chute
-                self._erros += 1
+    def novo(self, letra):
+        self._atual = letra.upper()
 
-    def certo(self):
-        return self._atual in self._palalavra_secreta._revelada
+        pass
 
-    def valido(self):
-        return self._atual.isalpha() and len(self._atual) == 1 and not self.repetido()
+    def _eh_certo(self):
+        pass
 
-    def repetido(self):
-        return self._atual in self._certos + self._errados
+    def _eh_errado(self):
+        pass
+
+    def _eh_valido(self):
+        pass
 
 
 if __name__ == "__main__":
+    with open('desenho_da_forca.txt', 'r', encoding='utf-8') as forca_txt:
+        desenho_da_forca = forca_txt.read().split(';')
 
-    DESENHOS_DA_FORCA = open('desenho_da_forca.txt', 'r', encoding='utf-8')
-    MENSAGEM_DE_NAO_MORTE = open(
-        'mensagem_de_nao_morte.txt', 'r', encoding='utf-8')
-
-    desenhos_da_forca = DESENHOS_DA_FORCA.read().split(';')
-    mensagem_de_nao_morte = MENSAGEM_DE_NAO_MORTE.read()
-
-    DESENHOS_DA_FORCA.close()
-    MENSAGEM_DE_NAO_MORTE.close()
-
-    jogo = Jogo(desenhos_da_forca)
-    print(jogo.desenhar_forca())
+    jogo = Jogo(desenho_da_forca)
 
     while not (jogo.infelizmente_saiu_vivo() or jogo.enforcou()):
+        print(jogo.desenho_da_forca())
         print(jogo.palavra_secreta())
-        print('Chutes dados: ', jogo.chutes())
-        jogo.chutar(
-            input('Qual é seu chute? Mas cuidado, ele pode ser o ultimo!: '))
-        print(jogo.desenhar_forca())
+        print('\nChutes dados:', jogo.chutes())
+        jogo.chutar(input('\nQual é seu chute? Mas cuidado, ele pode ser o ultimo!: '))
+
+    mensagem_de_morte = jogo.desenho_da_forca()
+
+    with open('mensagem_de_nao_morte.txt', 'r', encoding='utf-8') as mensagem_txt:
+        mensagem_de_nao_morte = mensagem_txt.read()
+
+    if jogo.enforcou():
+        print(mensagem_de_morte)
 
     if jogo.infelizmente_saiu_vivo():
         print(mensagem_de_nao_morte)
-
-        while True:
-            nova_palavra = input(
-                'Ajude Dona Morte, adicione mais uma palavra: ')
-            jogo.adicionar_palavra(nova_palavra)
-            break
