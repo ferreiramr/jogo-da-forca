@@ -1,10 +1,7 @@
-from flask import Flask, render_template, url_for, redirect
-
+from flask import Flask, redirect, render_template, url_for
 from flask_bootstrap import Bootstrap
-
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired, Length
 
 from forca import Jogo
 
@@ -13,28 +10,20 @@ app.config['SECRET_KEY'] = 'donaMorte'
 bootstrap = Bootstrap(app)
 
 
-class FormularioDeChute(FlaskForm):
-    chute = StringField('Qual é seu chute? Mas cuidado, ele pode ser o ultimo!', render_kw={"size": "1"},  validators=[
-                        DataRequired(), Length(max=1, message='Chute apenas uma letra por vez'), ])
-    chutar = SubmitField('Chutar')
+with open('desenho_da_forca.txt', 'r') as forca_txt:
+    desenho_da_forca = forca_txt.read().split(';')
 
-# CRIAR A LISTA DE HTMLs DA FORCA
 
-DESENHOS_DA_FORCA = open('desenho_da_forca.txt', 'r', encoding='utf-8')
-MENSAGEM_DE_NAO_MORTE = open(
-    'mensagem_de_nao_morte.txt', 'r', encoding='utf-8')
-
-desenhos_da_forca = DESENHOS_DA_FORCA.read().split(';')
-mensagem_de_nao_morte = MENSAGEM_DE_NAO_MORTE.read()
-
-DESENHOS_DA_FORCA.close()
-MENSAGEM_DE_NAO_MORTE.close()
-
-jogo = Jogo(desenhos_da_forca)
+jogo = Jogo(desenho_da_forca)
 
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
+def jogogando():
+
+    class FormularioDeChute(FlaskForm):
+        chute = StringField(
+            'Qual é seu chute? Mas cuidado, ele pode ser o ultimo!', render_kw={"size": "1"})
+        chutar = SubmitField('Chutar')
 
     formulario_de_chute = FormularioDeChute()
 
@@ -47,27 +36,20 @@ def index():
     elif jogo.enforcou():
         return redirect(url_for('morreu'))
     else:
-        return render_template('index.html', forca=jogo.desenhar_forca(), palavra_secreta=jogo.palavra_secreta(), chutes=jogo.chutes(), formulario_de_chute=formulario_de_chute)
+        return render_template('jogo.html', forca=jogo.desenho_da_forca(), palavra_secreta=jogo.palavra_secreta(),
+                                chutes=jogo.chutes(), formulario_de_chute=formulario_de_chute)
 
 
-@app.route('/novo-jogo', methods=['GET', 'POST'])
-def novo_jogo():
-    jogo.nova_palavra()
-    return redirect(url_for('index'))
-
-
-@app.route('/infelizmente-voce-nao-morreu', methods=['GET', 'POST'])
+@app.route('/infelizmente-voce-nao-morreu')
 def nao_morreu():
-    return render_template('nao-morreu.html')
+    with open('mensagem_de_nao_morte.txt') as mensagem_txt:
+        mensagem_de_nao_morte = mensagem_txt.read()
 
+    return render_template('nao-morreu.html', mensagem_de_nao_morte=mensagem_de_nao_morte)
 
-@app.route('/moreu')
+@app.route('/fico-feliz-que-esteja-morto')
 def morreu():
-    if jogo.enforcou():
-        return render_template('morreu.html', forca=jogo.desenhar_forca())
-    else:
-        return redirect(url_for('index'))
-
+    return render_template('morreu.html', forca=jogo.desenho_da_forca())
 
 if __name__ == "__main__":
     app.run(debug=True)

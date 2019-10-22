@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-<!-- {% import "bootstrap/wtf.html" as wtf %}}  -->
+{% import "bootstrap/wtf.html" as wtf %}}
 
 {% block title %}Jogo da Forca{% endblock title %}
 
@@ -8,6 +8,8 @@
 <pre>
     {{ forca }}
 </pre>
+
+<a href={{ url_for('novo_jogo') }} class="button" >Jogar novamente</a>
 
 {% endblock content %}
 
