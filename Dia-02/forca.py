@@ -16,19 +16,19 @@ class Jogo:
         return self._desenho_da_forca[self._chutes._erros]
 
     def palavra_secreta(self):
-        pass
+        return self._palavra._secreta
 
     def chutar(self, letra):
-        pass
+        self._chutes.novo(letra)
 
     def chutes(self):
-        pass
+        return self._chutes._certos + self._chutes._errados
 
     def enforcou(self):
-        pass
+        return self._chutes._erros >= self._maximo_de_erros
 
     def infelizmente_saiu_vivo(self):
-        pass
+        return self._palavra.secreta_foi_revelada()
 
 
 class Palavra:
@@ -62,20 +62,33 @@ class Chutes:
     def novo(self, letra):
         self._atual = letra.upper()
 
-        pass
+        if self._eh_certo():
+            self._certos += self._atual
+            self._palavra_secreta.revele_os_chutes(self._certos)
+
+        if self._eh_errado():
+            self._errados += self._atual
+            self._erros += 1
 
     def _eh_certo(self):
-        pass
+        return self._eh_valido() and self._atual in self._palavra_secreta._revelada
 
     def _eh_errado(self):
-        pass
+        return self._eh_valido() and not self._eh_certo()
 
     def _eh_valido(self):
-        pass
+        eh_uma_letra = self._atual.isalpha()
+        eh_apenas_uma_letra = len(self._atual) == 1
+        eh_repetido = self._atual in (self._certos + self._errados)
+
+        if eh_uma_letra and eh_apenas_uma_letra and not eh_repetido:
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
-    with open('desenho_da_forca.txt', 'r', encoding='utf-8') as forca_txt:
+    with open('desenho_da_forca.txt', 'r') as forca_txt:
         desenho_da_forca = forca_txt.read().split(';')
 
     jogo = Jogo(desenho_da_forca)
@@ -88,7 +101,7 @@ if __name__ == "__main__":
 
     mensagem_de_morte = jogo.desenho_da_forca()
 
-    with open('mensagem_de_nao_morte.txt', 'r', encoding='utf-8') as mensagem_txt:
+    with open('mensagem_de_nao_morte.txt') as mensagem_txt:
         mensagem_de_nao_morte = mensagem_txt.read()
 
     if jogo.enforcou():
