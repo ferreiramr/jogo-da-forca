@@ -5,7 +5,7 @@
 - [Git e Github para iniciantes](https://www.udemy.com/course/git-e-github-para-iniciantes/)
 - [Curso em Video Python](https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6)
 - [Python para Zumbis](https://www.youtube.com/channel/UCripRddD4BnaMcU833ExuwA)
-- [Introdução à Ciência da Computação com Python](https://www.youtube.com/watch?v=WT_zCgSHSTQ&
+- [Introdução à Ciência da Computação com Python](https://www.youtube.com/watch?v=WT_zCgSHSTQ&)
 - [Flask Drops](https://www.youtube.com/playlist?list=PLjSf4DcGBdiG52KoaYwfI1s5yRdtqeI-T)
 - [Curso de Flask](https://www.youtube.com/watch?v=r40pC9kyoj0&list=PL3BqW_m3m6a05ALSBW02qDXmfDKIip2KX)
 - [Learn Flask for Python](https://www.youtube.com/watch?v=Z1RJmh_OqeA)
