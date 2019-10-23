@@ -31,25 +31,6 @@ def jogogando():
         jogo.chutar(formulario_de_chute.chute.data)
         formulario_de_chute.chute.data = ''
 
-    if jogo.infelizmente_saiu_vivo():
-        return redirect(url_for('nao_morreu'))
-    elif jogo.enforcou():
-        return redirect(url_for('morreu'))
-    else:
-        return render_template('jogo.html', forca=jogo.desenho_da_forca(), palavra_secreta=jogo.palavra_secreta(),
-                                chutes=jogo.chutes(), formulario_de_chute=formulario_de_chute)
-
-
-@app.route('/infelizmente-voce-nao-morreu')
-def nao_morreu():
-    with open('mensagem_de_nao_morte.txt') as mensagem_txt:
-        mensagem_de_nao_morte = mensagem_txt.read()
-
-    return render_template('nao-morreu.html', mensagem_de_nao_morte=mensagem_de_nao_morte)
-
-@app.route('/fico-feliz-que-esteja-morto')
-def morreu():
-    return render_template('morreu.html', forca=jogo.desenho_da_forca())
 
 if __name__ == "__main__":
     app.run(debug=True)
