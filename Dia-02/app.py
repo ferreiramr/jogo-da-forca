@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'donaMorte'
 bootstrap = Bootstrap(app)
 
 
-with open('desenho_da_forca.txt', 'r') as forca_txt:
+with open('desenho_da_forca.txt', 'r', encoding='utf-8) as forca_txt:
     desenho_da_forca = forca_txt.read().split(';')
 
 
